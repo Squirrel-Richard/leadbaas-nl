@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #070710;
+  --surface: rgba(255,255,255,0.04);
+  --border: rgba(255,255,255,0.07);
+  --accent: #6366f1;
+  --accent-light: #818cf8;
+  --green: #10b981;
+  --text: #f1f5f9;
+  --muted: #64748b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Organic orbs */
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -30px) scale(1.05); }
+  66% { transform: translate(-20px, 20px) scale(0.95); }
+}
+@keyframes float2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  40% { transform: translate(-40px, 20px) scale(1.08); }
+  70% { transform: translate(20px, -30px) scale(0.92); }
+}
+
+.orb { border-radius: 50%; filter: blur(80px); animation: float 12s ease-in-out infinite; }
+.orb-2 { animation: float2 16s ease-in-out infinite; }
+
+/* Glass card */
+.glass {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #818cf8 0%, #6366f1 50%, #4f46e5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-green {
+  background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Buttons */
+.btn-primary {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: white;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(99,102,241,0.35);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #94a3b8;
+  border-radius: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1px solid var(--border);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+.btn-secondary:hover {
+  color: white;
+  border-color: rgba(255,255,255,0.15);
+}
+
+/* Pipeline stage badges */
+.stage-prospect { background: rgba(99,102,241,0.15); color: #818cf8; }
+.stage-contact { background: rgba(59,130,246,0.15); color: #60a5fa; }
+.stage-offerte { background: rgba(245,158,11,0.15); color: #fbbf24; }
+.stage-onderhandeling { background: rgba(249,115,22,0.15); color: #fb923c; }
+.stage-gewonnen { background: rgba(16,185,129,0.15); color: #34d399; }
+.stage-verloren { background: rgba(239,68,68,0.15); color: #f87171; }
+
+/* Form inputs */
+.input {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  padding: 10px 14px;
+  font-size: 14px;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.input:focus {
+  border-color: var(--accent);
+}
+.input::placeholder {
+  color: var(--muted);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
